@@ -1,28 +1,28 @@
 # Example of Sails.js application
 
-Пример одностраничника на Sails.js с БД Mongo на ajax, написанное на ES6, использующее в качестве шаблонизатора Pug, в качестве сборщика Webpack а для поддержки более старыми браузерами транспайлер Babel.
+An example of a single page on Sails.js with a Mongo DB on ajax, written in ES6, using less for css, Pug template engine and Webpack as a module bundler with Babel transpiler for supporting older browsers .
 
-Зависимости
+Dependencies
 ------------
 
-Для работы приложения требуется `node.js` версии `9.8` или выше, [Sails v1](https://sailsjs.com), Webpack версии `4.5.0`, а так же MongoDB версии `3.6.x`.
+The application requires `npm` version `5.8.0` or higher,  `node.js` version `9.8` or higher, [Sails v1](https://sailsjs.com), Webpack version `4.5.0`, and MongoDB version `3.6.x`.
 
-
-Установка
+Installation
 ----------------
 
-В первую очередь необходимо установить зависимости:
+The first step is to install dependencies:
 
 ```sh
 $ npm i
 ```
-Далее необходимо выполнить сборку:
+
+Then perform the build:
 
 ```sh
 $ webpack
 ```
 
-После чего необходимо зайти в папку с сервером и запустить сервер базы данных и при необходимости создать новую БД:
+In next step you need to install [MongoDB](https://www.mongodb.com/download-center#community), go to the folder with utilities DB (usually this is `C:\Program Files\MongoDB`) and run the database server and terminal:
 
 ```sh
 $ run mongod
@@ -30,15 +30,26 @@ $ run mongod
 
 ```sh
 $ run mongo
-
 ```
-И наконец запустить приложение:
+
+In the database terminal for creating, enter: 
+
+```sh
+$ use solv1
+```
+
+In `config/datastores.js` in default for adapter `sails-mongo` set the DB port, for example:
+`url: 'mongodb://127.0.0.1:<port>/solv1'`.
+
+Finally, launch the application:
 
 ```sh
 $ sails lift
 ```
-И перейти по адресу localhost:1337
 
+Now you can go to the address: `localhost:1337`
+
+Work application instance: https://solv-sails.herokuapp.com
 
 ### Version info
 
