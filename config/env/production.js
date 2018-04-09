@@ -255,8 +255,8 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     onlyAllowOrigins: [
-      'https://shielded-beach-70825.herokuapp.com/',
-      'https://shielded-beach-70825.herokuapp.com/',
+      'https://shielded-beach-70825.herokuapp.com',
+      'https://shielded-beach-70825.herokuapp.com',
     ],
 
 
