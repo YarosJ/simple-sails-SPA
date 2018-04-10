@@ -13,11 +13,12 @@ module.exports = {
                 './assets/js/main.js',
                 './assets/js/gallery.js',
                 './assets/js/removableCarousel.js',
+                './assets/js/testimonialsCarousel.js',
                 './assets/js/textEditability.js'
             ]
     },
     output: {
-        path: __dirname + '/.tmp/public/',
+        path: __dirname + '/public/',
         filename: "[name]"
     },
     module: {

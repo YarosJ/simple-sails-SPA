@@ -38,13 +38,23 @@ class Carousel {
         });
     }
 
-    updateCurrentCircle(slideNow) {
+  /**
+   * Adds the appropriate class for the current slide switch and removes this class from the others
+   *
+   * @param slideNow
+   */
+
+  updateCurrentCircle(slideNow) {
         this._$sliderSwitchers.find("li").removeClass(this.selectedSwitcherClass);
         $(this._$sliderSwitchers.find("li")[slideNow]).addClass(this.selectedSwitcherClass);
         this._$slideWrapper.css({'transition': '1s'});
     }
 
-    nextSlide() {
+  /**
+   * Moves slideWrapper to the next position of the slide
+   */
+
+  nextSlide() {
         if (this.slideNow + 1 === this.slideCount || this.slideNow + 1 <= 0 || this.slideNow + 1 > this.slideCount) {
             this.slideNow = -1;
         }
@@ -53,7 +63,11 @@ class Carousel {
         this.updateCurrentCircle(this.slideNow);
     }
 
-    previousSlide() {
+  /**
+   * Moves slideWrapper to the previous position of the slide
+   */
+
+  previousSlide() {
         if (this.slideNow === 0) {
             this.slideNow = this.slideCount;
         }
@@ -62,7 +76,13 @@ class Carousel {
         this.updateCurrentCircle(this.slideNow);
     }
 
-    moveSlide(Id) {
+  /**
+   * Moves slideWrapper to the position of appropriate id of the slide
+   *
+   * @param Id
+   */
+
+  moveSlide(Id) {
         this._translateWidth = -this._$viewport.width() * (Id);
         this._$slideWrapper.css({
             'transform': 'translate(' + this._translateWidth + 'px, 0)',
@@ -71,7 +91,13 @@ class Carousel {
         });
     }
 
-    start(slideInterval) {
+  /**
+   * Starts automatic scrolling of the slider
+   *
+   * @param slideInterval Interval between switching slides in milliseconds
+   */
+
+  start(slideInterval) {
         if (slideInterval != null) {
             this.slideInterval = slideInterval;
         }
@@ -80,7 +106,11 @@ class Carousel {
         }, this.slideInterval);
     }
 
-    stop() {
+  /**
+   * Stop automatic scrolling of the slider
+   */
+
+  stop() {
         this._switchInterval = clearInterval(this._switchInterval);
     }
 }

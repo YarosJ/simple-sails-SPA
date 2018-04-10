@@ -7,31 +7,33 @@
 
 module.exports = {
 
-  list:function(req, res){
-    Testimonials.find().exec(function(err, testimonials){
-      if(err){
+  list: function (req, res) {
+    Testimonials.find().exec(function (err, testimonials) {
+      if (err) {
         res.send(500, {error: 'Database Error'});
       }
       res.send(testimonials);
     });
   },
-  create:function(req, res){
-    var title = req.body.title;
-    var body = req.body.body;
-    var autor = req.body.autor;
-    var image = req.body.image;
+  create: function (req, res) {
+    let body = req.body;
 
-    Testimonials.create({title:title, body:body, autor:autor, image:image}).exec(function(err){
-      if(err){
+    Testimonials.create({
+      title: body.title,
+      body:  body.body,
+      autor: body.autor,
+      image: body.image
+    }).exec(function (err) {
+      if (err) {
         res.send(500, {error: 'Database Error'});
       } else {
         res.sendStatus(200);
       }
     });
   },
-  destroy: function(req, res){
-    Testimonials.destroy({id:req.params.id}).exec(function(err){
-      if(err){
+  destroy: function (req, res) {
+    Testimonials.destroy({id: req.params.id}).exec(function (err) {
+      if (err) {
         res.send(500, {error: 'Database Error'});
       } else {
         res.sendStatus(200);
@@ -40,14 +42,16 @@ module.exports = {
 
     return false;
   },
-  update: function(req, res){
-    var title = req.body.title;
-    var body = req.body.body;
-    var autor = req.body.autor;
-    var image = req.body.image;
+  update: function (req, res) {
+    let body = req.body;
 
-    Testimonials.update({id: req.params.id},{title:title, body:body, autor:autor, image:image}).exec(function(err){
-      if(err){
+    Testimonials.update({id: req.params.id}, {
+      title: body.title,
+      body:  body.body,
+      autor: body.autor,
+      image: body.image
+    }).exec(function (err) {
+      if (err) {
         res.send(500, {error: 'Database Error'});
       } else {
         res.sendStatus(200);

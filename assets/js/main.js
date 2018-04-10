@@ -1,6 +1,6 @@
 import '../styles/index.less';
 import Carousel from "./carousel";
-import RemovableCarousel from "./removableCarousel";
+import TestimonialsCarousel from "./testimonialsCarousel";
 import TextEditability from "./textEditability";
 
 $(document).ready(function () {
@@ -12,7 +12,7 @@ $(document).ready(function () {
     });
     topCarousel.start(7000);
 
-    const testmonialsCarousel = new RemovableCarousel({
+    const testmonialsCarousel = new TestimonialsCarousel({
         slider: '.testimonials-slider',
         sliderSwitchers: '.items'
     });
